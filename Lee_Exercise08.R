@@ -64,20 +64,22 @@ guessinput <- function(){
   return(as.integer(number))
 }
  
-# compare guess to answer
-while(guess != answer)
-{
-  guess <- guessinput()
-  if (guess == answer)
-  {
-    cat("Correct!")
-  }else if (guess > answer)
-    {
-      cat("Lower\n")
-  }else if (guess < answer)
-    {
-    cat("Higher\n")
+# compare guess to answer, up to 10 times
+# stop game if correct
+guesslimit = 10
+
+for (i in 1:(guesslimit+1)){
+    if (i <= guesslimit){
+       guess[i] <- guessinput()
+        if (guess[i] == answer)
+        {cat("Correct!")
+          break}
+       else if (guess[i] > answer)
+        {cat("Lower\n")} 
+       else if (guess[i] < answer)
+        {cat("Higher\n")}
+      }
+  else {cat("You lose.")}
   }
-}
 
 
